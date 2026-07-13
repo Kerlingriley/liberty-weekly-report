@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liberty Finance — Weekly Report Ecuador · 13 Jul 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001337;--navy2:#00193f;--navy3:#002050;
+  --gold:#938565;--gold2:#b3a993;--gold3:#c4b89a;--gold-d:#7a6c52;
+  --w:#f0ede6;--w90:rgba(240,237,230,0.9);--w60:rgba(240,237,230,0.6);--w35:rgba(240,237,230,0.35);
+  --ink:#1c1c2e;--ink2:#383850;--ink3:#64648a;
+  --bg:#eae7e0;--bg2:#f4f2ed;
+  --card:#ffffff;--card-bg:#f8f6f2;
+  --bdr:rgba(0,0,0,0.09);--bdr2:rgba(0,0,0,0.15);
+  --green:#1a6b3c;--green2:#1f9b52;--green-bg:#e8f5ee;
+  --red:#a02020;--red2:#c93030;--red-bg:#faeaea;
+  --amber:#8a5a18;--amber2:#c47820;--amber-bg:#fdf3e3;
+  --blue:#1a4080;--blue2:#2a68c4;--blue-bg:#e8f0fa;
+  --page-w:780px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#1a1e2e}
+body{font-family:'Barlow',sans-serif;background:#1a1e2e;min-height:100vh;padding:28px 16px 56px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--page-w);margin:0 auto;box-shadow:0 12px 80px rgba(0,0,0,0.8)}
+
+/* ── DARK HEADER ── */
+.ph{background:var(--navy2);border-bottom:2px solid rgba(147,133,101,0.35);padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
+.ph-brand{display:flex;align-items:center;gap:14px}
+.ph-logo{display:flex;flex-direction:column}
+.ph-l1{font-size:22px;font-weight:700;color:var(--w);letter-spacing:0.1em;line-height:1}
+.ph-l2{font-size:8px;font-weight:400;color:var(--gold3);letter-spacing:0.35em;text-transform:uppercase;margin-top:2px}
+.ph-vsep{width:1px;height:40px;background:rgba(147,133,101,0.3)}
+.ph-meta{flex:1;padding-left:0}
+.ph-t{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--w90)}
+.ph-s{font-size:10px;color:var(--gold3);margin-top:2px;letter-spacing:0.04em}
+.ph-d{font-size:9px;color:var(--w35);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px}
+.ph-right{text-align:right;flex-shrink:0}
+.ph-sent-badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:2px;background:rgba(196,120,32,0.2);border:1px solid rgba(196,120,32,0.45);color:#e8a840;letter-spacing:0.04em;display:inline-block;margin-bottom:4px}
+.ph-pg{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--w35);letter-spacing:0.08em}
+
+/* ── DARK TICKER ── */
+.ticker{background:var(--navy3);border-bottom:1px solid rgba(147,133,101,0.18);padding:0 28px;display:flex;overflow-x:auto;scrollbar-width:none}
+.ticker::-webkit-scrollbar{display:none}
+.tk{padding:10px 20px 10px 0;margin-right:20px;border-right:1px solid rgba(147,133,101,0.15);white-space:nowrap;flex-shrink:0}
+.tk:last-child{border-right:none;margin-right:0}
+.tk-l{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,184,154,0.55);display:block;margin-bottom:2px}
+.tk-v{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:#fff}
+.tk-c{font-size:10px;font-weight:500;margin-left:4px}
+.up{color:#34c97a}.dn{color:#e05555}.fl{color:rgba(255,255,255,0.38)}.ac{color:var(--gold3)}
+
+/* ── LIGHT BODY ── */
+.body{background:var(--bg);padding:24px 28px 32px}
+
+/* ── SENTIMENT BAR ── */
+.sentinel{background:var(--card);border:1px solid var(--bdr);border-radius:3px;padding:12px 18px;display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.sent-l{font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.sent-bar{flex:1;height:6px;background:linear-gradient(to right,var(--red2) 0%,#d4a020 35%,rgba(100,100,100,0.15) 50%,#1f9b52 100%);border-radius:3px;position:relative}
+.sent-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border:3px solid var(--card);border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.25)}
+.sent-tags{display:flex;gap:7px;flex-shrink:0}
+.sent-tag{font-size:9.5px;font-weight:700;padding:4px 9px;border-radius:2px;letter-spacing:0.04em}
+.st-bajista{background:var(--red-bg);border:1px solid rgba(168,40,40,0.25);color:var(--red)}
+.st-neutro{background:var(--card-bg);border:1px solid var(--bdr2);color:var(--ink3);font-weight:600}
+.st-riskoff{background:var(--card-bg);border:1px solid var(--bdr);color:var(--ink3)}
+
+/* ── SECTION TITLE ── */
+.st{display:flex;align-items:center;gap:12px;margin-bottom:15px;margin-top:26px}
+.st:first-of-type{margin-top:0}
+.st-bar{width:4px;height:22px;background:var(--gold-d);border-radius:2px;flex-shrink:0}
+.st-text{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:500;color:var(--ink)}
+.st-sub{font-size:9.5px;font-family:'Barlow',sans-serif;font-style:normal;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3)}
+.st-line{flex:1;height:1px;background:var(--bdr2)}
+
+/* ── GRIDS ── */
+.g6040{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-bottom:20px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:20px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
+
+/* ── WHITE CARD BASE ── */
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:3px;overflow:hidden}
+
+/* ── PERFORMANCE TABLE ── */
+.ptbl{width:100%;border-collapse:collapse}
+.ptbl th{padding:8px 12px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);background:var(--card-bg);border-bottom:1px solid var(--bdr)}
+.ptbl td{padding:10px 12px;border-bottom:1px solid var(--bdr);font-size:12.5px;color:var(--ink2)}
+.ptbl td:first-child{font-weight:600;color:var(--ink)}
+.ptbl tbody tr:last-child td{border-bottom:none}
+.ptbl tbody tr:hover{background:var(--card-bg)}
+.t-up{color:var(--green);font-weight:600}.t-dn{color:var(--red);font-weight:600}.t-fl{color:var(--ink3)}
+
+/* ── TECH LEVELS ── */
+.lv-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-bottom:1px solid var(--bdr)}
+.lv-row:last-child{border-bottom:none}
+.lv-k{font-size:12px;color:var(--ink2)}
+.lv-v{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600}
+.lv-v.r{color:var(--red)}.lv-v.g{color:var(--green)}.lv-v.c{color:var(--gold-d)}
+
+/* ── NEWS CARDS ── */
+.nc{background:var(--card);border:1px solid var(--bdr);border-radius:3px;padding:14px 17px}
+.nc.hi{border-left:4px solid var(--amber2)}.nc.pos{border-left:4px solid var(--green2)}
+.nc.neg{border-left:4px solid var(--red2)}.nc.neu{border-left:4px solid var(--blue2)}
+.nc-stars{font-size:11.5px;margin-bottom:4px;color:var(--amber2);letter-spacing:1px}
+.nc-tag{font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+.nc-title{font-size:13px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px}
+.nc-body{font-size:12px;color:var(--ink2);line-height:1.6}
+.nc-arrow{font-size:11.5px;color:var(--gold-d);margin-top:8px;font-style:italic;font-weight:500}
+
+/* ── SCENARIOS ── */
+.sc-box{background:var(--card);border:1px solid var(--bdr);border-radius:3px;padding:16px 17px}
+.sc-box.b{border-top:3px solid var(--blue2)}.sc-box.bu{border-top:3px solid var(--green2)}.sc-box.be{border-top:3px solid var(--red2)}
+.sc-lbl{font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.sc-prob{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;line-height:1;margin-bottom:8px}
+.sc-box.b .sc-prob{color:var(--blue)}.sc-box.bu .sc-prob{color:var(--green)}.sc-box.be .sc-prob{color:var(--red)}
+.sc-txt{font-size:12px;line-height:1.6;color:var(--ink2)}
+
+/* ── GESTOR COMMENT ── */
+.cg{background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold-d);border-radius:3px;padding:17px 22px;margin-bottom:0}
+.cg-lbl{font-size:9.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.cg-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.cg-text{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--ink);line-height:1.75;font-weight:500}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--bdr2);margin:28px 0 0}
+.section-block{padding:24px 28px 0;background:var(--bg)}
+
+/* ── RADAR CARDS ── */
+.rc{background:var(--card);border:1px solid var(--bdr);border-radius:3px;overflow:hidden}
+.rc.ow{border-top:3px solid var(--green2)}.rc.wt{border-top:3px solid var(--amber2)}
+.rc.nt{border-top:3px solid var(--bdr2)}.rc.ac{border-top:3px solid var(--gold-d)}
+.rc-head{padding:14px 17px 12px;border-bottom:1px solid var(--bdr);background:var(--card-bg)}
+.rc-cat{font-size:9.5px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.rc-name{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.2}
+.rc-price{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--ink);line-height:1}
+.rc-chg{font-size:11.5px;font-weight:600;margin-top:4px}
+.rc-chg.up{color:var(--green)}.rc-chg.dn{color:var(--red)}.rc-chg.fl{color:var(--ink3)}.rc-chg.ac{color:var(--gold-d)}
+.rc-body{padding:13px 17px 15px}
+.rc-bmk{font-size:10.5px;color:var(--ink3);margin-bottom:9px;padding-bottom:8px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rc-text{font-size:12.5px;color:var(--ink2);line-height:1.65;margin-bottom:9px}
+.rc-arrow{font-size:11.5px;color:var(--gold-d);font-style:italic;font-weight:500}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-top:9px}
+.badge.ac{background:var(--green-bg);color:var(--green);border:1px solid rgba(26,107,60,0.2)}
+.badge.wt{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(138,90,24,0.2)}
+.badge.nt{background:var(--card-bg);color:var(--ink3);border:1px solid var(--bdr)}
+.btag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px}
+.btag.intl{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(26,64,128,0.15)}
+.btag.local{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(138,90,24,0.15)}
+
+/* ── CATALYST LIST ── */
+.ci-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ci{background:var(--card);border:1px solid var(--bdr);border-radius:3px;padding:12px 16px;display:flex;gap:13px}
+.ci-n{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--gold-d);min-width:20px;flex-shrink:0;padding-top:1px}
+.ci-t{font-size:13px;color:var(--ink2);line-height:1.55}
+.ci-t strong{color:var(--ink);font-weight:700}
+
+/* ── POSITION CARDS ── */
+.pc{background:var(--card);border:1px solid var(--bdr);border-radius:3px;overflow:hidden}
+.pc-head{padding:11px 15px 10px;border-bottom:1px solid var(--bdr);background:var(--card-bg);display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.pc-n{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--gold-d);flex-shrink:0;padding-top:2px}
+.pc-info{flex:1}
+.pc-asset{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:2px}
+.pc-cat{font-size:10px;color:var(--ink3)}
+.pc-badges{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
+.pc-met{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--bdr)}
+.pm{padding:7px 9px;border-right:1px solid var(--bdr)}.pm:last-child{border-right:none}
+.pm-l{font-size:7.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.pm-v{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink);font-weight:700}
+.pm-v.g{color:var(--green)}.pm-v.r{color:var(--red)}.pm-v.a{color:var(--amber)}.pm-v.c{color:var(--gold-d)}
+.pc-body{padding:11px 15px 13px}
+.pc-bmk{font-size:11px;color:var(--ink3);margin-bottom:7px;padding-bottom:7px;border-bottom:1px dashed var(--bdr);font-style:italic}
+.pc-text{font-size:12.5px;color:var(--ink2);line-height:1.55}
+.pc-text strong{color:var(--ink);font-weight:700}
+.pc-note{margin-top:8px;padding-top:7px;border-top:1px dashed var(--bdr);font-size:10.5px;color:var(--ink3);line-height:1.5}
+
+/* ── AGENDA TABLE ── */
+.atbl-card{background:var(--card);border:1px solid var(--bdr);border-radius:3px;overflow:hidden;margin-bottom:0}
+.atbl{width:100%;border-collapse:collapse}
+.atbl th{padding:8px 13px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);background:var(--card-bg);border-bottom:1px solid var(--bdr)}
+.atbl td{padding:10px 13px;border-bottom:1px solid var(--bdr);font-size:13px;vertical-align:middle;color:var(--ink2)}
+.atbl td:first-child{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold-d);font-weight:700;white-space:nowrap}
+.atbl tbody tr:last-child td{border-bottom:none}
+.atbl tbody tr:hover{background:var(--card-bg)}
+.kw{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.06em;padding:2px 6px;border-radius:2px;margin-left:5px;background:var(--amber-bg);color:var(--amber);border:1px solid rgba(138,90,24,0.2)}
+.kw.bin{background:var(--red-bg);color:var(--red);border:1px solid rgba(168,40,40,0.2)}
+.imp{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:5px}
+.imp.hi{background:var(--red2)}.imp.md{background:var(--amber2)}.imp.lo{background:var(--green2)}
+
+/* ── DARK FOOTER ── */
+.footer{background:var(--navy2);border-top:1px solid rgba(147,133,101,0.2);padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.footer-disc{font-size:10px;color:rgba(196,184,154,0.45);line-height:1.5;flex:1}
+.footer-next{font-size:11px;color:var(--gold2);font-weight:500;text-align:right;flex-shrink:0}
+
+/* ── SECTION SEPARATOR ── */
+.sec-sep{height:1px;background:var(--bg2);margin:0}
+</style>
+</head>
+<body><div class="wrap">
+<div class="ph">
+  <div class="ph-brand">
+    <div class="ph-logo"><div class="ph-l1">LIBERTY</div><div class="ph-l2">Finance</div></div>
+    <div class="ph-vsep" style="margin:0 16px"></div>
+    <div style="flex:1">
+      <div class="ph-t">Reporte Semanal de Mercados &mdash; 🇪🇨 Ecuador</div>
+      <div class="ph-s">Semana 13 &ndash; 18 Jul 2026 &middot; Dep. Research &amp; Estrategia</div>
+      <div class="ph-d">Temporada de Resultados Q2 &middot; CPI Jun ma&ntilde;ana &middot; Warsh Congreso</div>
+    </div>
+  </div>
+  <div class="ph-right"><div class="ph-sent-badge">⚠️ Cauto &middot; OW &middot; CPI ma&ntilde;.</div></div>
+</div>
+<div class="ticker">
+  <div class="tk"><span class="tk-l">WTI Ecuador</span><span class="tk-v">$74.70</span><span class="tk-c dn">&#9650; +8.6% sem &middot; Iran</span></div>
+  <div class="tk"><span class="tk-l">Eurobono 2034</span><span class="tk-v">~9.10%</span><span class="tk-c ac">&#10230; OW &middot; Windfall sube</span></div>
+  <div class="tk"><span class="tk-l">EMBI ECU</span><span class="tk-v">~385&ndash;405</span><span class="tk-c dn">&#9650; T10Y 4.57% pesa</span></div>
+  <div class="tk"><span class="tk-l">XAUUSD</span><span class="tk-v">~$4,064</span><span class="tk-c dn">&#9660; &minus;2.3% sem</span></div>
+  <div class="tk"><span class="tk-l">T10Y EE.UU.</span><span class="tk-v">4.568%</span><span class="tk-c dn">&#9650; m&aacute;x. Mayo 22</span></div>
+  <div class="tk"><span class="tk-l">Windfall</span><span class="tk-v">~$1.5B</span><span class="tk-c up">&#9650; WTI $74 = +$21</span></div>
+</div>
+
+<div class="body">
+  <div class="sentinel">
+    <span class="sent-l">Sentimiento</span>
+    <div class="sent-bar"><div class="sent-dot" style="left:55%;background:#8a5a18"></div></div>
+    <div class="sent-tags">
+      <span class="sent-tag st-neutro">T10Y 4.57%</span>
+      <span class="sent-tag st-neutro">&#9679; Cauto &middot; OW</span>
+      <span class="sent-tag st-riskoff">CPI ma&ntilde;. trigger</span>
+    </div>
+  </div>
+  <div class="st"><div class="st-bar"></div><span class="st-text">Performance</span><span class="st-sub">&middot; Semana 6&ndash;11 Jul &middot; Apertura 13 Jul</span><div class="st-line"></div></div>
+  <div class="g6040">
+    <div class="card">
+      <table class="ptbl">
+        <thead><tr><th>Instrumento</th><th>6 Jul</th><th>11 Jul</th><th>Var. Sem.</th></tr></thead>
+        <tbody>
+          <tr><td>WTI Ecuador</td><td class="t-fl">$68.78</td><td class="t-dn">$74.70</td><td class="t-dn">+8.6% &middot; Iran vuelve</td></tr>
+          <tr><td>Eurobono 2034</td><td class="t-fl">~9.10%</td><td class="t-fl">~9.10%</td><td class="t-fl">T10Y sube &mdash; neutral</td></tr>
+          <tr><td>EMBI Ecuador</td><td class="t-up">~375&ndash;385</td><td class="t-dn">~385&ndash;405</td><td class="t-dn">T10Y 4.57% presiona</td></tr>
+          <tr><td>T10Y EE.UU.</td><td class="t-fl">~4.45%</td><td class="t-dn">4.568%</td><td class="t-dn">+12 pbs &middot; Iran + IPC</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="lv-row"><span class="lv-k">Eurobono 2034 &mdash; OW</span><span class="lv-v g">8.80&ndash;9.30%</span></div>
+      <div class="lv-row"><span class="lv-k">Trigger monetizaci&oacute;n</span><span class="lv-v c">EMBI &lt;380 &rarr; 30&ndash;50%</span></div>
+      <div class="lv-row"><span class="lv-k">WTI windfall actual</span><span class="lv-v g">$74.70 &middot; +$21.2 vs budget</span></div>
+      <div class="lv-row"><span class="lv-k">Windfall estimado</span><span class="lv-v g">~$1.5B (sube)</span></div>
+      <div class="lv-row"><span class="lv-k">T10Y</span><span class="lv-v r">4.568% &middot; EMBI bajo presi&oacute;n</span></div>
+      <div class="lv-row"><span class="lv-k">CPI Jun EE.UU.</span><span class="lv-v c">Ma&ntilde;. 14 Jul &middot; trigger EMBI</span></div>
+    </div>
+  </div>
+  <div class="st"><div class="st-bar"></div><span class="st-text">Noticias de la Semana</span><span class="st-sub">&middot; Filtrado para Ecuador</span><div class="st-line"></div></div>
+  <div class="g2">
+    <div class="nc pos">
+      <div class="nc-stars">&#9733;&#9733;&#9733;</div>
+      <div class="nc-tag">Ecuador &middot; Fiscal</div>
+      <div class="nc-title">WTI $74.70 (+8.6%) &mdash; Windfall vuelve a ~$1.5B &middot; fiscal reforzado</div>
+      <div class="nc-body">Iran vuelve = WTI $74.70 = +$21.2 sobre budget $53.5. Windfall semanal estimado ~$1.5B (de vuelta al m&aacute;ximo). Para Ecuador: mejor escenario fiscal desde el pico de la crisis. Fiscal m&aacute;s s&oacute;lido = EMBI debe comprimir cuando T10Y ceda. El Eurobono 2034 OW es a&uacute;n m&aacute;s conveniente.</div>
+      <div class="nc-arrow">&rarr; WTI $74.70 = windfall ~$1.5B = mayor escudo fiscal</div>
+    </div>
+    <div class="nc neg">
+      <div class="nc-stars">&#9733;&#9733;&#9734;</div>
+      <div class="nc-tag">Global &middot; T10Y</div>
+      <div class="nc-title">T10Y 4.568% &mdash; Iran + IPC Chile + NFP revision = EMBI bajo presi&oacute;n</div>
+      <div class="nc-body">T10Y subi&oacute; 12 pbs esta semana a 4.568% (m&aacute;x. desde 22 mayo). Iran hostilidades + IPC Chile 4.3% + inflaci&oacute;n EE.UU. expectativas 3.7% = T10Y elevado. EMBI Ecuador puede estar en ~385&ndash;405. CPI ma&ntilde;ana es el punto de inflexi&oacute;n: si baja (t&iacute;tular negativo MoM esperado) &rarr; T10Y cede &rarr; EMBI comprime.</div>
+      <div class="nc-arrow">&rarr; CPI ma&ntilde;. 14 = trigger monetizaci&oacute;n o espera</div>
+    </div>
+    <div class="nc hi">
+      <div class="nc-stars">&#9733;&#9733;&#9734;</div>
+      <div class="nc-tag">EE.UU. &middot; CPI</div>
+      <div class="nc-title">CPI Jun ma&ntilde;. 14 Jul &mdash; titular negativo esperado &middot; core elevado</div>
+      <div class="nc-body">Kiplinger: &ldquo;market participants might see something they haven&rsquo;t witnessed in a while: A negative month-over-month headline inflation print.&rdquo; Pero core a&uacute;n elevado. BofA Cabana: &ldquo;may get the market closer to 50/50 for hike vs hold.&rdquo; Si CPI titular baja + Warsh neutro &rarr; T10Y cede &rarr; EMBI &lt;385 &rarr; ejecutar monetizaci&oacute;n.</div>
+      <div class="nc-arrow">&rarr; CPI ma&ntilde;. = trigger definitivo monetizaci&oacute;n</div>
+    </div>
+    <div class="nc pos">
+      <div class="nc-stars">&#9733;&#9734;&#9734;</div>
+      <div class="nc-tag">Ecuador &middot; Comercial</div>
+      <div class="nc-title">Banr&iacute;o + Advfin &mdash; retorno &gt;20% &middot; windfall $1.5B = mejor argumento</div>
+      <div class="nc-body">WTI $74.70 = windfall $1.5B = el mejor escenario fiscal del a&ntilde;o para Ecuador. Argumento: &ldquo;no s&oacute;lo ganamos &gt;20% en 7 meses &mdash; el fiscal de Ecuador est&aacute; en el mejor punto del a&ntilde;o. El CPI de ma&ntilde;ana puede ser el catalizador para el &uacute;ltimo tramo.&rdquo;</div>
+      <div class="nc-arrow">&rarr; Contactar hoy &middot; windfall m&aacute;ximo es argumento final</div>
+    </div>
+  </div>
+  <div class="st"><div class="st-bar"></div><span class="st-text">Escenarios</span><span class="st-sub">&middot; Semana 13 &ndash; 18 Jul</span><div class="st-line"></div></div>
+  <div class="g3">
+    <div class="sc-box b"><div class="sc-lbl">Escenario Base</div><div class="sc-prob">50%</div><div class="sc-txt">CPI jun titular &darr; &middot; T10Y 4.30&ndash;4.50% &middot; EMBI 380&ndash;400 &middot; OW total &middot; monetizaci&oacute;n posible.</div></div>
+    <div class="sc-box bu"><div class="sc-lbl">Alcista</div><div class="sc-prob">28%</div><div class="sc-txt">CPI baja + Warsh neutro &rarr; T10Y &lt;4.20% &rarr; EMBI &lt;380 &rarr; monetizar &middot; retorno +22%+.</div></div>
+    <div class="sc-box be"><div class="sc-lbl">Bajista</div><div class="sc-prob">22%</div><div class="sc-txt">CPI sube &rarr; T10Y 4.80%+ &rarr; EMBI 420+ &rarr; OW total &middot; windfall $1.5B aguanta.</div></div>
+  </div>
+  <div class="st"><div class="st-bar"></div><span class="st-text">Lectura de Apertura</span><span class="st-sub">&middot; 13 Jul 2026</span><div class="st-line"></div></div>
+  <div class="cg">
+    <div class="cg-lbl">Comentario del Gestor</div>
+    <div class="cg-text">&ldquo;La semana tiene una dualidad perfecta para Ecuador: WTI vuelve a $74.70 (windfall ~$1.5B, el mejor del a&ntilde;o) pero T10Y sube a 4.568% (presi&oacute;n EMBI). Ma&ntilde;ana CPI jun EE.UU. puede romper el nudo: Kiplinger espera titular negativo (primera vez que el titular cae). Si T10Y cede post-CPI y Warsh es neutro, EMBI puede comprimir &lt;380 esta misma semana. Orden lista. Retorno &gt;20% demostrado en 8 meses.&rdquo;</div>
+  </div>
+</div>
+<div style="background:var(--navy2);padding:10px 28px;border-top:1px solid rgba(147,133,101,0.2);border-bottom:1px solid rgba(147,133,101,0.2)">
+  <span style="font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold3)">&#8212; Radar &mdash; HNWI Ecuador</span>
+</div>
+<div class="body">
+  <div class="st" style="margin-top:0"><div class="st-bar"></div><span class="st-text">Radar de Mercados</span><div class="st-line"></div></div>
+  <div class="g2">
+    <div class="rc ow">
+      <div class="rc-head"><div class="rc-cat">Local &middot; Renta Fija USD</div><div class="rc-name">Eurobono Ecuador 2034</div><div class="rc-price">~9.10% YTM</div><div class="rc-chg ac">Windfall $1.5B &middot; CPI ma&ntilde;. = trigger</div></div>
+      <div class="rc-body"><div class="rc-bmk"><span class="btag local">LOCAL</span> OW total &middot; orden activa</div>
+      <div class="rc-text">WTI $74.70 = windfall $1.5B (m&aacute;ximo). T10Y frena pero CPI ma&ntilde;. puede revertir. EMBI 85+ pbs comprimido desde inicio. Retorno &gt;20%.</div>
+      <div class="rc-arrow">&rarr; OW total &middot; CPI ma&ntilde;. = monetizar</div>
+      <div class="badge ac">SOBREPONDERAR</div></div>
+    </div>
+    <div class="rc ow">
+      <div class="rc-head"><div class="rc-cat">Internacional &middot; Metal Precioso</div><div class="rc-name">XAUUSD &mdash; Oro CFD</div><div class="rc-price">~$4,064</div><div class="rc-chg dn">&minus;2.3% sem &middot; T10Y</div></div>
+      <div class="rc-body"><div class="rc-bmk"><span class="btag intl">INTL</span> OW &middot; soporte $3,975</div>
+      <div class="rc-text">T10Y 4.568% = presi&oacute;n. Soporte $3,975. CPI ma&ntilde;.: si baja = T10Y cede = oro rebota. Goldman $5,400 LP.</div>
+      <div class="rc-arrow">&rarr; OW &middot; CPI ma&ntilde;. direcci&oacute;n</div>
+      <div class="badge ac">SOBREPONDERAR</div></div>
+    </div>
+    <div class="rc nt">
+      <div class="rc-head"><div class="rc-cat">Internacional &middot; Renta Fija</div><div class="rc-name">US Treasuries 2Y</div><div class="rc-price">~4.20%</div><div class="rc-chg dn">T10Y 4.57% subiendo</div></div>
+      <div class="rc-body"><div class="rc-bmk"><span class="btag intl">INTL</span> Parking post-monetizaci&oacute;n</div>
+      <div class="rc-text">Post-monetizaci&oacute;n Eurobono: Treasuries 2Y 4.20% = excelente parking. T10Y alto = T2Y tambi&eacute;n alto = muy buen rendimiento de espera.</div>
+      <div class="rc-arrow">&rarr; Parking &middot; ideal post-monetizaci&oacute;n</div>
+      <div class="badge nt">COMPLEMENTO</div></div>
+    </div>
+    <div class="rc nt">
+      <div class="rc-head"><div class="rc-cat">Comercial &middot; Ecuador</div><div class="rc-name">Banr&iacute;o + Advfin</div><div class="rc-price">Windfall $1.5B</div><div class="rc-chg ac">&#9650; Mejor fiscal del a&ntilde;o</div></div>
+      <div class="rc-body"><div class="rc-bmk">WTI $74.70 = m&aacute;ximo escudo fiscal</div>
+      <div class="rc-text">WTI $74.70 = windfall $1.5B = mejor fiscal del a&ntilde;o. Track record: &gt;20% en 8 meses. Hoy + ma&ntilde;ana = ventana &oacute;ptima.</div>
+      <div class="rc-arrow">&rarr; Contactar HOY &middot; CPI ma&ntilde;. = cierre</div>
+      <div class="badge nt">URGENTE</div></div>
+    </div>
+  </div>
+  <div class="st"><div class="st-bar"></div><span class="st-text">Calendario</span><span class="st-sub">&middot; Semana 13&ndash;18 Jul &middot; Ecuador</span><div class="st-line"></div></div>
+  <div class="atbl-card"><table class="atbl"><thead><tr><th>Fecha</th><th>Evento</th><th>Impacto Ecuador</th></tr></thead><tbody>
+    <tr><td>Mar 14</td><td><span class="imp hi"></span>CPI Jun EE.UU. + Warsh <span class="kw bin">TRIGGER</span></td><td>T10Y &middot; EMBI &middot; monetizaci&oacute;n</td></tr>
+    <tr><td>Mi&eacute; 15</td><td><span class="imp md"></span>PPI Jun + Beige Book</td><td>T10Y pipeline &middot; Fed tono</td></tr>
+    <tr><td>Jul 29&ndash;30</td><td><span class="imp hi"></span>FOMC Jul &mdash; HOLD</td><td>T10Y &middot; EMBI adicional</td></tr>
+  </tbody></table></div>
+</div>
+<div class="footer">
+  <div class="footer-disc">&#9888; Informe con fines exclusivamente informativos. No constituye asesor&iacute;a financiera personalizada. Las inversiones implican riesgos incluyendo p&eacute;rdida del capital. CFDs son instrumentos complejos con alto riesgo. Liberty Finance no asume responsabilidad por decisiones basadas en este an&aacute;lisis.</div>
+  <div class="footer-next" style="margin-left:20px">Liberty Finance &middot; A Legacy with Future</div>
+</div>
+</div></body></html>
